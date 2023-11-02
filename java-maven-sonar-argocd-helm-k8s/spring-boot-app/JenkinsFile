@@ -1,41 +1,12 @@
 pipeline {
-    agent any
-    stages {
-        stage('Checkout') {
-            steps {
-                sh 'echo "Passed in checkout stage"'
-                // Add Git checkout step here
-            }
-        }
-        stage('Build and Test') {
-            steps {
-                sh 'echo "Passed in build and testing stage"'
-                // Add build and test steps here
-            }
-        }
-        stage('Static Code Analysis') {
-            steps {
-                sh 'echo "Passed in code analysis stage"'
-                // Add SonarQube analysis step here
-            }
-        }
-        stage('Build Docker Image') {
-            steps {
-                sh 'echo "Passed docker image stage"'
-                // Add Docker image build steps here
-            }
-        }
-        stage('Push Docker Image') {
-            steps {
-                sh 'echo "Passed pushing docker image stage"'
-                // Add Docker image push steps here
-            }
-        }
-        stage('Update Deployment File') {
-            steps {
-                sh 'echo "Passed deployemnet file stage"'
-                // Add deployment file update steps here
-            }
-        }
+  agent {
+    docker { image 'node:16-alpine' }
+  }
+  stages {
+    stage('Test') {
+      steps {
+        sh 'node --version'
+      }
     }
+  }
 }
