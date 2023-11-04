@@ -30,10 +30,7 @@ pipeline {
         }
       }
     }
- stage('Initialize'){
-        def dockerHome = tool 'Mydocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
+
      stage('Build and Push Docker Image') {
       environment {
         DOCKER_IMAGE = "gmanohar12/ultimate_ci_cd:${BUILD_NUMBER}"
