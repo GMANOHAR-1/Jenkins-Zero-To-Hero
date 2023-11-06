@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: gmanohar12/ultimate_ci_cd:replaceImageTag
+        image: gmanohar12/ultimate_ci_cd:5
         ports:
         - containerPort: 8080
